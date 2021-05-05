@@ -1,0 +1,56 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "firstName": "Loi",
+      "lastName": "Tran",
+      "city": "Ho Chi Minh City",
+      "email": "loi@coderschool.vn",
+      "work": [
+        {
+          "title": "Instructor",
+          "company": "CoderSchool"
+        },
+        {
+          "title": "Developer",
+          "company": "Facebook"
+        }
+      ]
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "userId": 1,
+      "body": "Hello World Newest",
+      "createdAt": "Wed May 05 2021 13:22:33 GMT+0700",
+      "photos": [
+        {
+          "url": "https://bit.ly/3ejqYjx"
+        },
+        {
+          "url": "https://bit.ly/3b2BWbe"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "userId": 2,
+      "body": "Hello World Oldest",
+      "createdAt": "Wed May 04 2021 13:22:33 GMT+0700",
+      "photos": [
+        {
+          "url": "https://bit.ly/3ejqYjx"
+        },
+        {
+          "url": "https://bit.ly/3b2BWbe"
+        }
+      ]
+    },
+    {
+      "userId": 1,
+      "body": "Hello World Newest Newest",
+      "id": 3
+    }
+  ]
+}
