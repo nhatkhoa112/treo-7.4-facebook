@@ -8,3 +8,5 @@
 6. Implement login on auth page.
 7. Implement all posts on homepage.
 8. Implement current users posts on profile page.
+9. Implement sidebar on homepage.
+10. Implement tabs on profilepage.

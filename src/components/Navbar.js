@@ -8,11 +8,17 @@ import {
   FormControl,
 } from "react-bootstrap";
 
+import { Link } from "react-router-dom";
+
+import logo from "../img/logo.png";
+
 export default function Navbarr() {
   return (
     <div>
       <Navbar bg="light" expand="lg">
-        <Navbar.Brand href="#home">Coderbook</Navbar.Brand>
+        <Navbar.Brand as={Link} to="/">
+          <img src={logo} alt="coderbook" width="50px" />
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
