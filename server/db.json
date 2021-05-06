@@ -31,6 +31,21 @@
       "email": "nhatkhoa.tin@gmail.com",
       "password": "nhatkhoa1!",
       "id": 4
+    },
+    {
+      "email": "khoa@examble",
+      "password": "nhatkhoa1!",
+      "id": 5
+    },
+    {
+      "email": "",
+      "password": "nhatkhoa1!",
+      "id": 6
+    },
+    {
+      "email": "nhatkhoa.tin@gmail.com",
+      "password": "nhatkhoa1!",
+      "id": 7
     }
   ],
   "posts": [
