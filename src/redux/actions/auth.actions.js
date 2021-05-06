@@ -4,10 +4,6 @@ import * as types from "../constants/auth.constants";
 
 import api from "../../apiService";
 
-const register = (email, password) => async (dispatch) => {};
-
-const authActions = {
-  register,
-};
+const authActions = {};
 
 export default authActions;
