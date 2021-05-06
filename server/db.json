@@ -16,6 +16,21 @@
           "company": "Facebook"
         }
       ]
+    },
+    {
+      "email": "nhatkhoa.tin@gmail.com",
+      "password": "nhatkhoa1!",
+      "id": 2
+    },
+    {
+      "email": "nhatkhoa.tin@gmail.com",
+      "password": "nhatkhoa1!",
+      "id": 3
+    },
+    {
+      "email": "nhatkhoa.tin@gmail.com",
+      "password": "nhatkhoa1!",
+      "id": 4
     }
   ],
   "posts": [
