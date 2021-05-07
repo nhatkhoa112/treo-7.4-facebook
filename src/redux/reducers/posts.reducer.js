@@ -34,7 +34,11 @@ const postsReducer = (state = initialState, action) => {
             case types.POST_POST_FAILURE:
                 return {...state,
                         loading: false}
-            
+            case types.CREATE_COMMENT_TO_POST: 
+                state.posts.find(p => p.id === payload.postId).comments.unshift(payload);
+                return {...state , posts: state.posts}
+
+                
         default:
         return state;
     }

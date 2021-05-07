@@ -28,7 +28,7 @@
       "id": 1,
       "userId": 1,
       "body": "Hello World Newest",
-      "comment": [],
+      "comments": [],
       "createdAt": "Wed May 05 2021 13:22:33 GMT+0700",
       "photos": [
         {
@@ -44,7 +44,7 @@
       "userId": 2,
       "body": "Hello World Oldest",
       "createdAt": "Wed May 04 2021 13:22:33 GMT+0700",
-      "comment": [],
+      "comments": [],
       "photos": [
         {
           "url": "https://bit.ly/3ejqYjx"
@@ -55,10 +55,13 @@
       ]
     },
     {
-      "userId": 1,
-      "comment": [],
-      "body": "Hello World Newest Newest",
-      "id": 3
-    } 
+      "id": 3,
+      "userId": 2,
+      "body": "Hello World Oldest",
+      "createdAt": "Wed May 04 2021 13:22:33 GMT+0700",
+      "comments": []
+    }
+  ],
+  "comments": [
   ]
 }

@@ -1,9 +1,22 @@
-import React from 'react'
+import React, {useState}from 'react'
 import styled from 'styled-components'; 
 import moment from 'moment';
+import {useDispatch} from 'react-redux';
+import commentActions from '../redux/actions/comment.actions';
 
 
 export const PostItem = ({post, ...restProps}) => {
+    const [commentBody,setCommentBody] = useState("");
+    const dispatch = useDispatch();
+    const handleSubmitComment = (e) => {
+        e.preventDefault();
+        if(commentBody){
+            dispatch(commentActions.createComment( post, commentBody ));
+            setCommentBody("");
+        }
+        
+
+    }
     return (
         <div>
             <MainPost key={post.id}>
@@ -25,7 +38,6 @@ export const PostItem = ({post, ...restProps}) => {
                     </MainPostText>
                     {post.photos ? (
                         <MainPostImage>
-                            {console.log(post.photos)}
                             {post.photos.map((photo,index) => {
                                 return <img key={index} src={photo.url} alt="" />
                             })}
@@ -33,6 +45,18 @@ export const PostItem = ({post, ...restProps}) => {
                     ): ("")}
                     
                 </MainPostContent>
+                <MainPostCommentList>
+                    {post && post.comments.map(comment => {
+                        return <div key={comment.id}>{comment.body}</div>
+                    })}
+                </MainPostCommentList>
+                <MainPostCommentInput onSubmit={handleSubmitComment}>
+                    <img src="https://scontent-xsp1-3.xx.fbcdn.net/v/t1.6435-9/129109903_3337231159720670_3970948972836275145_n.jpg?_nc_cat=100&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=BT8wnB4VFuQAX-Yn5Gz&_nc_ht=scontent-xsp1-3.xx&oh=687c5f6c487c611cf62c425e228bc766&oe=60B8929F" alt="avartar" style={{width: "40px", height: "40px"}} />
+                    <input 
+                        value={commentBody}
+                        onChange={(e) => setCommentBody(e.target.value)}
+                        type="text" placeholder="Write comment" />
+                </MainPostCommentInput>
             </MainPost>
         </div>
     )
@@ -48,6 +72,7 @@ const MainPost= styled.div`
     border-radius: 20px;
     display: flex;
     flex-direction: column;
+    align-items: center;
 `
 
 const MainPostUser = styled.div`
@@ -116,5 +141,47 @@ const MainPostImage = styled.div`
     >img{
     width: 50%;
     height: 300px;
+    }
+`;
+
+const MainPostCommentList = styled.div`
+    width: 90%;
+    max-height: 100px;
+    min-height: 0px;
+    border-bottom: 1px #353637 solid;
+    border-top:1px #353637 solid;
+    overflow: hidden;
+    overflow-y: auto;
+    >div{
+        text-align: left;
+        color: #ccc;
+    }
+`;
+
+const MainPostCommentInput = styled.form`
+    height: 60px;
+    width: 100%;
+    display: flex;
+    padding: 5px 20px;
+    justify-content: space-between;
+    align-items: center;
+    >img{
+        border-radius: 50%;
+    }
+
+    >input{
+        border: none;
+        background: #3A3B3C;
+        width: 92%;
+        height: 40px;
+        padding: 0 20px;
+        color: #ccc;
+        overflow: hidden;
+        overflow-y: auto;
+        border-radius: 20px;
+    }
+
+    >input:focus{
+        outline:none;
     }
 `;
