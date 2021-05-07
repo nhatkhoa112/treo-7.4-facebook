@@ -14,4 +14,8 @@ export const SidebarRight = () => {
 const SidebarRightContainer = styled.div`
     flex: 1;
     background: #18191A;
+
+    @media (max-width: 850px){
+        display: none;
+    }
 `

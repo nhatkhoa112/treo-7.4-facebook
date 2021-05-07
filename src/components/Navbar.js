@@ -20,7 +20,7 @@ export default function Navbarr() {
           </Nav.Link>
           <NavbarForm>
             <input className="form-comtrol" type="text"  placeholder="Search Facebook" />
-            <i class="fas fa-search"></i> 
+            <i className="fas fa-search"></i> 
           </NavbarForm>
         </NavbarLeft>
         <NavbarCenter>
@@ -28,23 +28,23 @@ export default function Navbarr() {
           <NavbarCenterContainer>
             <NavbarCenterIcon >
               <span>Home</span>
-              <i class="fas fa-home"></i>
+              <i className="fas fa-home"></i>
             </NavbarCenterIcon>
             <NavbarCenterIcon >
               <span>Watch</span>
-              <i class="fas fa-tv"></i>
+              <i className="fas fa-tv"></i>
             </NavbarCenterIcon>
             <NavbarCenterIcon >
               <span>Marketplace</span>
-              <i class="fas fa-store"></i>
+              <i className="fas fa-store"></i>
             </NavbarCenterIcon>
             <NavbarCenterIcon > 
               <span>Groups</span>
-              <i class="fas fa-users"></i>
+              <i className="fas fa-users"></i>
             </NavbarCenterIcon>
             <NavbarCenterIcon >
               <span>Gameing</span>
-              <i class="fas fa-dice-d20"></i>
+              <i className="fas fa-dice-d20"></i>
             </NavbarCenterIcon>
           </NavbarCenterContainer>
         ) : ("")}
@@ -53,13 +53,13 @@ export default function Navbarr() {
           <NavbarIcon1>
           </NavbarIcon1>
           <NavbarIcon>
-            <i class="fas fa-bars"></i>
+            <i className="fas fa-bars"></i>
           </NavbarIcon>
           <NavbarIcon>
-            <i class="fab fa-facebook-messenger"></i>
+            <i className="fab fa-facebook-messenger"></i>
           </NavbarIcon>
           <NavbarIcon>
-            <i class="fas fa-caret-down"></i>
+            <i className="fas fa-caret-down"></i>
           </NavbarIcon>
         </NavbarRight>
       </NavbarContainer>
@@ -160,6 +160,11 @@ const NavbarContainer = styled.div`
   display: flex;
   align-items: center;
   background: #242526;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
 `
 
 const NavbarLeft= styled.div`

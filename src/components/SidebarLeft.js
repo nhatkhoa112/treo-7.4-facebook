@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components'; 
 
-
 export const SidebarLeft = () => {
     return (
         <SidebarLeftContainer>
@@ -10,40 +9,40 @@ export const SidebarLeft = () => {
                 <div>Khoa tin</div> 
             </SidebarLeftContainerOption>
             <SidebarLeftContainerOption>
-                <i class="fas fa-user-friends"></i>
+                <i className="fas fa-user-friends"></i>
                 <div>Friends</div> 
             </SidebarLeftContainerOption> 
             <SidebarLeftContainerOption>
-                <i style= {{ color: "blue" , opacity: ".5"}} class="fas fa-history"></i>
+                <i style= {{ color: "blue" , opacity: ".5"}} className="fas fa-history"></i>
                 <div>Memories</div>
             </SidebarLeftContainerOption>
             <SidebarLeftContainerOption>
-                <i style= {{ color: "gray" , opacity: "1"}} class="fas fa-users"></i>
+                <i style= {{ color: "gray" , opacity: "1"}} className="fas fa-users"></i>
                 <div>Groups</div>
             </SidebarLeftContainerOption>
             <SidebarLeftContainerOption>
-                <i style={{opacity: ".7"}} class="fas fa-store"></i>
+                <i style={{opacity: ".7"}} className="fas fa-store"></i>
                 <div>Marketplace</div>
             </SidebarLeftContainerOption>
             <SidebarLeftContainerOption>
-                <i style={{color: "green"}} class="fas fa-tv"></i>
+                <i style={{color: "green"}} className="fas fa-tv"></i>
                 <div>Watch</div>
             </SidebarLeftContainerOption>
             <SidebarLeftContainerOption>
-                <i style={{color: "tomato"}} class="far fa-calendar-check"></i>
+                <i style={{color: "tomato"}} className="far fa-calendar-check"></i>
                 <div>Event</div>
             </SidebarLeftContainerOption>
             <SidebarLeftContainerOption>
-                <i style={{color: "purple"}} class="fas fa-bookmark"></i>
+                <i style={{color: "purple"}} className="fas fa-bookmark"></i>
                 <div>Saved</div>
             </SidebarLeftContainerOption>
             <SidebarLeftContainerOption>
-                <i style={{color: "orange"}} class="fas fa-flag"></i>
+                <i style={{color: "orange"}} className="fas fa-flag"></i>
                 <div>Pages</div>
             </SidebarLeftContainerOption>
             <SidebarLeftContainerOption>
                 <SidebarLeftContainerOptionIcon>
-                    <i  class="fas fa-caret-down"></i>
+                    <i  className="fas fa-caret-down"></i>
                 </SidebarLeftContainerOptionIcon>
                 <div>See Mores</div>
             </SidebarLeftContainerOption>
@@ -62,6 +61,10 @@ const SidebarLeftContainer = styled.div`
     align-items: center;
     width: 100%;
     height: 100%;
+
+    @media (max-width: 850px){
+        display: none;
+    }
 `
 
 const SidebarLeftContainerOption  = styled.div`

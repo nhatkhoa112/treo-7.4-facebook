@@ -19,7 +19,6 @@ const register = (email, password) => async (dispatch) => {
 const userLogin = (email, password) => async (dispatch) => {
         dispatch({ type: types.LOGIN_REQUEST, payload: null });
         const data = await api.get('/users');
-        console.log(data)
         if(data.data.some(user => {
             console.log({email, password})
             return user.email === email && user.password === password
