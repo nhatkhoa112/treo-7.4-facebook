@@ -1,10 +1,12 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import styled from 'styled-components'; 
 import {useSelector, useDispatch} from 'react-redux';
 import postsActions from '../redux/actions/posts.actions';
-import moment from 'moment';
+import {PostItem} from './PostItem';
+import {ModalBoxPost} from './ModalBoxPost';
 
 export const Main = () => {
+    const [modalOpen, setModalOpen] = useState(false);
     const postsState = useSelector(state => state.posts)
     const dispatch = useDispatch();
     const {loading, posts} = postsState
@@ -16,9 +18,14 @@ export const Main = () => {
     return (
         <MainContainer>
             <MainStory>
+                <ModalBoxPost modalOpen={modalOpen} setModalOpen={setModalOpen}  />
                 <MainStoryInput>
                     <img src="https://scontent-xsp1-3.xx.fbcdn.net/v/t1.6435-9/129109903_3337231159720670_3970948972836275145_n.jpg?_nc_cat=100&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=BT8wnB4VFuQAX-Yn5Gz&_nc_ht=scontent-xsp1-3.xx&oh=687c5f6c487c611cf62c425e228bc766&oe=60B8929F" alt="avartar" style={{width: "40px"}} />
-                    <input type="button" value="What's on your mind, Khoa?" className="primary-btn col-xs-11 text-left" />
+                    <input 
+                            onClick={()  => setModalOpen(!modalOpen)}
+                            type="button" 
+                            value="What's on your mind, Khoa?"
+                            className="primary-btn col-xs-11 text-left" />
                 </MainStoryInput>
                 <MainStoryIcons>
                     <MainStoryIcon>
@@ -38,35 +45,8 @@ export const Main = () => {
             <MainPosts>
                 {posts.reverse().map(post => {
                     return(
-                        <MainPost key={post.id}>
-                            <MainPostUser>
-                                <MainPostUserContent>
-                                    <div>
-                                        {moment(post.createdAt).fromNow()}
-                                    </div>
-                                </MainPostUserContent>
-                                <MainPostUserIcon>
-                                    <i class="fas fa-ellipsis-h"></i>
-                                </MainPostUserIcon>
-                            </MainPostUser>
-                            <MainPostContent >
-                                <MainPostText>
-                                    <div>
-                                        {post.body}
-                                    </div>
-                                </MainPostText>
-                                {post.photos ? (
-                                    <MainPostImage>
-                                        {console.log(post.photos)}
-                                        {post.photos.map((photo,index) => {
-                                            return <img key={index} src={photo.url} alt="" />
-                                        })}
-                                    </MainPostImage>
-                                ): ("")}
-                                
-                            </MainPostContent>
-                        </MainPost>
-                    )
+                        <PostItem key={post.id} post={post} />
+                    )   
                 })}
 
             </MainPosts>
@@ -165,80 +145,3 @@ const MainPosts = styled.div`
     flex-direction: column;
     width: 100%;
 `
-
-const MainPost= styled.div`
-    width: 100%;
-    margin-top: 5px;
-    height: auto;
-    background: #242526;
-    border-radius: 20px;
-    display: flex;
-    flex-direction: column;
-`
-
-const MainPostUser = styled.div`
-    width: 100%;
-    height: 50px;
-    padding: 10px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-`
-
-const MainPostUserContent = styled.div`
-    >div{
-        color: #ccc;
-        font-size: 13px;
-    }
-`
-
-const MainPostUserIcon = styled.div`
-    width: 40px;
-    height: 40px;
-    background: #3A3B3C;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    :hover{
-        background: #787878;
-    }
-
-    >i{
-        color: #ccc;
-    }
-
-
-`
-
-
-const MainPostContent = styled.div`
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content:flex-start;
-    height: 300px;
-    overflow: hidden;
-    overflow-y: auto;
-    padding: 10px 20px;
-    
-
-`
-
-const MainPostText = styled.div`
-    width: 100%;
-    >div{
-        text-align: left;
-        color: #ccc;
-    }
-`;
-
-const MainPostImage = styled.div`
-    
-    >img{
-    width: 100%;
-    height: auto;
-    }
-`;

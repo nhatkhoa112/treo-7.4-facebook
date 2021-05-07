@@ -50,3 +50,27 @@
   overflow-y: auto;
   display: flex;
 }
+
+/* Post modal */
+
+.modal.show .modal-dialog{
+  display: flex;
+  justify-content: center;
+}
+
+.modal-content {
+  width: 50% !important;
+  height: 450px !important;
+  border-radius: 20px;
+  top: 100px;
+  background: #242526;
+  padding: 10px;
+}
+
+.modal-body{
+  display: flex !important;
+  flex-direction: column !important;
+  width: 100% !important;
+  height: 100% !important;
+  padding: 0 !important;
+}

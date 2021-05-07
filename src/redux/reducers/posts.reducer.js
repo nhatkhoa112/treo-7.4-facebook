@@ -22,6 +22,19 @@ const postsReducer = (state = initialState, action) => {
             case types.GET_POSTS_FAILURE:
                 return {...state,
                         loading: false}
+            case types.POST_POST_REQUEST:
+                return {...state, 
+                        loading: true
+                    }
+            case types.POST_POST_SUCCESS:
+                return {...state, 
+                        loading: false, 
+                        posts: state.posts.concat(payload.data)
+                        }
+            case types.POST_POST_FAILURE:
+                return {...state,
+                        loading: false}
+            
         default:
         return state;
     }

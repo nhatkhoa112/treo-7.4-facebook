@@ -1,5 +1,5 @@
 import { toast } from "react-toastify";
-
+import moment from 'moment';
 import * as types from "../constants/posts.constants";
 
 import api from "../../apiService";
@@ -17,6 +17,24 @@ const getPosts = () => async (dispatch) => {
 
 
 
-const postsActions = {getPosts};
+const postPost = (postBody) => async (dispatch) => {
+        dispatch({ type: types.POST_POST_REQUEST, payload: null });
+        
+    try {        
+        const data = await api.post('/posts',{
+            body: postBody, 
+            userId: 2, 
+            createdAt: moment().format()  
+        });
+        dispatch({ type: types.POST_POST_SUCCESS, payload:  data });
+    } catch (error) {
+        toast.error(error.message);
+        dispatch({ type: types.POST_POST_FAILURE, payload: error });
+    }
+}
+
+
+
+const postsActions = {getPosts, postPost};
 
 export default postsActions;

@@ -16,14 +16,19 @@
           "company": "Facebook"
         }
       ]
+    },
+    {
+      "email": "nhatkhoa.tin@gmail.com",
+      "password": "nhatkhoa1!",
+      "id": 2
     }
-    
   ],
   "posts": [
     {
       "id": 1,
       "userId": 1,
       "body": "Hello World Newest",
+      "comment": [],
       "createdAt": "Wed May 05 2021 13:22:33 GMT+0700",
       "photos": [
         {
@@ -39,6 +44,7 @@
       "userId": 2,
       "body": "Hello World Oldest",
       "createdAt": "Wed May 04 2021 13:22:33 GMT+0700",
+      "comment": [],
       "photos": [
         {
           "url": "https://bit.ly/3ejqYjx"
@@ -50,8 +56,9 @@
     },
     {
       "userId": 1,
+      "comment": [],
       "body": "Hello World Newest Newest",
       "id": 3
-    }
+    } 
   ]
 }
