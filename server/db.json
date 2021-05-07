@@ -16,47 +16,8 @@
           "company": "Facebook"
         }
       ]
-    },
-    {
-      "email": "nhatkhoa.tin@gmail.com",
-      "password": "nhatkhoa1!",
-      "id": 2
-    },
-    {
-      "email": "nhatkhoa.tin@gmail.com",
-      "password": "nhatkhoa1!",
-      "id": 3
-    },
-    {
-      "email": "nhatkhoa.tin@gmail.com",
-      "password": "nhatkhoa1!",
-      "id": 4
-    },
-    {
-      "email": "khoa@examble",
-      "password": "nhatkhoa1!",
-      "id": 5
-    },
-    {
-      "email": "",
-      "password": "nhatkhoa1!",
-      "id": 6
-    },
-    {
-      "email": "nhatkhoa.tin@gmail.com",
-      "password": "nhatkhoa1!",
-      "id": 7
-    },
-    {
-      "email": "nhatkhoa.tin@gmail.com",
-      "password": "nhatkhoa1!",
-      "id": 8
-    },
-    {
-      "email": "nhatkhoa.tin@gmail.com",
-      "password": "nhatkhoa1!",
-      "id": 9
     }
+    
   ],
   "posts": [
     {
