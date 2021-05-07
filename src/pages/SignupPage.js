@@ -17,7 +17,6 @@ export default function LoginPage() {
     if(auth.loading){
         return <h1>Loading...</h1>
     }
-    console.log(auth)
     if(auth.isDirect){
         return  <Redirect to="/" />
     }

@@ -1,11 +1,13 @@
 // import { findAllByTestId } from "@testing-library/dom";
 import * as types from "../constants/auth.constants";
+const email = JSON.parse(localStorage.getItem("coderbookUser"));
+
 
 const initialState = {
-    email: "",
-    isAuthenticated: false,
-    isDirect: false, 
-    loading: false
+    email:  email ? email : "",
+    isAuthenticated:  email ? true : false, 
+    isDirect: email ? true : false, 
+    loading:   false, 
 };
 
 const authReducer = (state = initialState, action) => {
@@ -17,6 +19,7 @@ const authReducer = (state = initialState, action) => {
                     loading: true
                 }
         case types.REGISTER_SUCCESS:
+                localStorage.setItem("coderbookUser", JSON.stringify(payload));
             return {...state, 
                     loading: false, 
                     isAuthenticated: true,
@@ -30,6 +33,7 @@ const authReducer = (state = initialState, action) => {
                     loading: true
                 }
         case types.LOGIN_SUCCESS:
+            localStorage.setItem("coderbookUser", JSON.stringify(payload)); 
             return {...state, 
                     loading: false, 
                     isAuthenticated: true,
@@ -38,6 +42,13 @@ const authReducer = (state = initialState, action) => {
         case types.LOGIN_FAILURE:
             return {...state,
                     loading: false}
+        case types.LOGOUT:
+            localStorage.removeItem("coderbookUser")
+            return {...state,
+                    email:   "",
+                    isAuthenticated:  false, 
+                    isDirect:  false, 
+                    loading:   false, }
         default:
         return state;
     }

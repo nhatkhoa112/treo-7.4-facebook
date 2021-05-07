@@ -3,13 +3,16 @@ import styled from 'styled-components';
 import {Nav} from 'react-bootstrap';
 import { Link } from "react-router-dom";
 import logo from "../img/logo.png";
-import {useSelector} from 'react-redux';
-
-
+import {useSelector, useDispatch} from 'react-redux';
+import authActions from '../redux/actions/auth.actions'
 
 export default function Navbarr() {
   const {auth} = useSelector(state => state)
   const {isAuthenticated} = auth;
+  const dispatch = useDispatch();
+  const handleSignOut =() => {
+    dispatch(authActions.signOut())
+  }
 
   return (
     <div>
@@ -61,6 +64,11 @@ export default function Navbarr() {
           <NavbarIcon>
             <i className="fas fa-caret-down"></i>
           </NavbarIcon>
+          <NavbarIcon2
+            onClick={handleSignOut}
+          >
+            <i class="fas fa-power-off"></i>
+          </NavbarIcon2>
         </NavbarRight>
       </NavbarContainer>
     </div>
@@ -242,4 +250,29 @@ const NavbarRight= styled.div`
   align-items: center;
   padding: 0 40px;
 
+`
+const NavbarIcon2 = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border: 2px solid crimson;
+  border-radius: 100%;
+  background: #3A3B3C;
+  margin-right: 15px;
+  
+  :hover{
+    border: 2px solid tomato;
+    background:  #787878;
+    >i{
+      color: tomato;
+    }
+    
+  }
+
+  >i{
+    color: crimson;
+    font-size: 20px;
+  }
 `

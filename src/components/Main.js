@@ -35,7 +35,13 @@ export const Main = () => {
                 </MainStoryIcons>
             </MainStory>
             <MainPosts>
-                
+                {posts.map(post => {
+                    return(
+                        <MainPost key={post.id}>
+                            
+                        </MainPost>
+                    )
+                })}
 
             </MainPosts>
         </MainContainer>
@@ -131,4 +137,8 @@ const MainPosts = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
+`
+
+const MainPost= styled.div`
+    
 `

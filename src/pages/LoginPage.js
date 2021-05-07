@@ -16,6 +16,8 @@ export default function LoginPage() {
         dispatch(authActions.userLogin(email, password))
     }
 
+
+
     if(auth.loading){
         return <h1>Loading</h1>
     }
@@ -55,7 +57,6 @@ export default function LoginPage() {
                     variant="primary" type="submit">
                     Submit
                 </Button>
-
             </Form>
         </div>
     )

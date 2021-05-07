@@ -32,7 +32,12 @@ const userLogin = (email, password) => async (dispatch) => {
 };
 
 
+const signOut = () => async (dispatch) => {
+        dispatch({ type: types.LOGOUT, payload: null });
+};
 
-const authActions = {register, userLogin};
+
+
+const authActions = {register, userLogin, signOut};
 
 export default authActions;
