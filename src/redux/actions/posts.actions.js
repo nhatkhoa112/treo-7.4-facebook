@@ -24,7 +24,8 @@ const postPost = (postBody) => async (dispatch) => {
         const data = await api.post('/posts',{
             body: postBody, 
             userId: 2, 
-            createdAt: moment().format()  
+            createdAt: moment().format(),
+            comments: []  
         });
         dispatch({ type: types.POST_POST_SUCCESS, payload:  data });
     } catch (error) {

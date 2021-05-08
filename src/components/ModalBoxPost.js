@@ -1,7 +1,7 @@
 import React, {useState}  from 'react'
 import { Modal } from 'react-bootstrap';
 import styled from 'styled-components';
-import {useDispatch} from 'react-redux';
+import {useDispatch,  useSelector} from 'react-redux';
 import postsActions from '../redux/actions/posts.actions';
 
 
@@ -9,7 +9,7 @@ import postsActions from '../redux/actions/posts.actions';
 export const ModalBoxPost = ({modalOpen, setModalOpen, ...restProps}) => {
     const [postBody, setPostBody] = useState("");
     const dispatch = useDispatch();
-
+    const authState = useSelector(state => state.auth);
     const handleSubmitPost = (e) => {
         e.preventDefault();
         if(postBody){
@@ -38,8 +38,8 @@ export const ModalBoxPost = ({modalOpen, setModalOpen, ...restProps}) => {
                     </ModalTitle>
                     <ModalContent >
                         <ModalUser>
-                            <img src="https://scontent-xsp1-3.xx.fbcdn.net/v/t1.6435-9/129109903_3337231159720670_3970948972836275145_n.jpg?_nc_cat=100&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=BT8wnB4VFuQAX-Yn5Gz&_nc_ht=scontent-xsp1-3.xx&oh=687c5f6c487c611cf62c425e228bc766&oe=60B8929F" alt="avartar" style={{width: "40px"}} />
-                            <div>Khoa tin</div>
+                            <img src={authState.avatarUrl} alt="avartar" style={{width: "40px"}} />
+                            <div>{authState.username}</div>
                         </ModalUser>
                         <textarea 
                             onChange={(e) => setPostBody(e.target.value)} 

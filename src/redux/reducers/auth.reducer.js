@@ -1,12 +1,14 @@
 // import { findAllByTestId } from "@testing-library/dom";
 import * as types from "../constants/auth.constants";
-const email = JSON.parse(localStorage.getItem("coderbookUser"));
+const user = JSON.parse(localStorage.getItem("coderbookUser"));
 
 
 const initialState = {
-    email:  email ? email : "",
-    isAuthenticated:  email ? true : false, 
-    isDirect: email ? true : false, 
+    username: user ? user.username : "",
+    avatarUrl: user ? user.avatarUrl : "",
+    email:  user ? user.email : "",
+    isAuthenticated:  user ? true : false, 
+    isDirect: user ? true : false, 
     loading:   false, 
 };
 
@@ -23,7 +25,9 @@ const authReducer = (state = initialState, action) => {
             return {...state, 
                     loading: false, 
                     isAuthenticated: true,
-                    email: payload.email, 
+                    email: payload.email,
+                    username: payload.username,
+                    avatarUrl: payload.avatarUrl,
                     isDirect : true}
         case types.REGISTER_FAILURE:
             return {...state,
@@ -37,7 +41,9 @@ const authReducer = (state = initialState, action) => {
             return {...state, 
                     loading: false, 
                     isAuthenticated: true,
-                    email: payload, 
+                    email: payload.email,
+                    username: payload.username,
+                    avatarUrl: payload.avatarUrl,
                     isDirect : true}
         case types.LOGIN_FAILURE:
             return {...state,

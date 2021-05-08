@@ -8,9 +8,9 @@ import {ModalBoxPost} from './ModalBoxPost';
 export const Main = () => {
     const [modalOpen, setModalOpen] = useState(false);
     const postsState = useSelector(state => state.posts)
+    const authState = useSelector(state => state.auth);
     const dispatch = useDispatch();
     const {loading, posts} = postsState
-    console.log({loading, posts})
     useEffect(() => {
         dispatch(postsActions.getPosts())
     }, [dispatch])
@@ -20,11 +20,11 @@ export const Main = () => {
             <MainStory>
                 <ModalBoxPost modalOpen={modalOpen} setModalOpen={setModalOpen}  />
                 <MainStoryInput>
-                    <img src="https://scontent-xsp1-3.xx.fbcdn.net/v/t1.6435-9/129109903_3337231159720670_3970948972836275145_n.jpg?_nc_cat=100&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=BT8wnB4VFuQAX-Yn5Gz&_nc_ht=scontent-xsp1-3.xx&oh=687c5f6c487c611cf62c425e228bc766&oe=60B8929F" alt="avartar" style={{width: "40px"}} />
+                    <img src={authState.avatarUrl} alt="avartar" style={{width: "40px"}} />
                     <input 
                             onClick={()  => setModalOpen(!modalOpen)}
-                            type="button" 
-                            value="What's on your mind, Khoa?"
+                            type="button"
+                            value={`What's on your mind, ${authState.username}?`}
                             className="primary-btn col-xs-11 text-left" />
                 </MainStoryInput>
                 <MainStoryIcons>

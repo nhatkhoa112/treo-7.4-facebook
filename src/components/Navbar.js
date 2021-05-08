@@ -54,6 +54,8 @@ export default function Navbarr() {
         </NavbarCenter>
         <NavbarRight>
           <NavbarIcon1>
+            <img src={auth.avatarUrl} alt="avartar" style={{width: "40px"}} />
+            <div>{auth.username}</div>
           </NavbarIcon1>
           <NavbarIcon>
             <i className="fas fa-bars"></i>
@@ -77,19 +79,32 @@ export default function Navbarr() {
 
 const NavbarIcon1 = styled.div`
   display: flex;
-  justify-content: center;
   align-items: center;
-  width: 80px;
+  width: 100px;
   height: 40px;
   border-radius: 20px 20px;
   background: #3A3B3C;
   margin-right: 15px;
+  >img{
+      border-radius: 50%;
+      margin-right: 5px;
+    }
+    >div{
+      color: #ccc;
+      font-size: 12px;
+    }
+
 
   :hover{
     background: #787878;
     >i{
       color: white;
     }
+    >div{
+      color: white;
+    }
+
+   
   }
 
   >i{
