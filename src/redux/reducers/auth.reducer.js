@@ -2,8 +2,8 @@
 import * as types from "../constants/auth.constants";
 const user = JSON.parse(localStorage.getItem("coderbookUser"));
 
-
 const initialState = {
+    id : user ? user.id : null,
     username: user ? user.username : "",
     avatarUrl: user ? user.avatarUrl : "",
     email:  user ? user.email : "",
@@ -25,6 +25,7 @@ const authReducer = (state = initialState, action) => {
             return {...state, 
                     loading: false, 
                     isAuthenticated: true,
+                    id: payload.id,
                     email: payload.email,
                     username: payload.username,
                     avatarUrl: payload.avatarUrl,
@@ -42,6 +43,7 @@ const authReducer = (state = initialState, action) => {
                     loading: false, 
                     isAuthenticated: true,
                     email: payload.email,
+                    id: payload.id,
                     username: payload.username,
                     avatarUrl: payload.avatarUrl,
                     isDirect : true}

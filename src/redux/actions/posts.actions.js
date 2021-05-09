@@ -16,6 +16,17 @@ const getPosts = () => async (dispatch) => {
 }
 
 
+const getPostsByUserId = (userId) => async (dispatch) => {
+        dispatch({ type: types.GET_POSTS_BY_USER_ID_REQUEST, payload: null });
+    try {        
+        const data = await api.get('/posts');
+        let postsById = data.data.filter(post => post.userId === userId);
+        dispatch({ type: types.GET_POSTS_BY_USER_ID_SUCCESS, payload: postsById });
+    } catch (error) {
+        toast.error(error.message);
+        dispatch({ type: types.GET_POSTS_BY_USER_ID_FAILURE, payload: error });
+    }
+}
 
 const postPost = (postBody) => async (dispatch) => {
         dispatch({ type: types.POST_POST_REQUEST, payload: null });
@@ -36,6 +47,6 @@ const postPost = (postBody) => async (dispatch) => {
 
 
 
-const postsActions = {getPosts, postPost};
+const postsActions = {getPosts, postPost , getPostsByUserId};
 
 export default postsActions;

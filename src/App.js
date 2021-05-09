@@ -13,7 +13,7 @@ function App() {
           <div>
             <Route  exact path={"/login"} component={LoginPage} />
             <Route  exact path={"/signup"} component={SignupPage} />
-            <Route exact path={"/:username"} component={ProfilePage} />
+            <ProtectedRoute exact path={"/:username"} component={ProfilePage} />
           </div>
           <Route exact path={"/*"} component={FourZeroFourPage} />
           </Switch>    

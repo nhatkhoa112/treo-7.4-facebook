@@ -8,7 +8,7 @@ const initialState = {
 
 const postsReducer = (state = initialState, action) => {
     const { type, payload } = action;
-
+    console.log(payload);
     switch (type) {
             case types.GET_POSTS_REQUEST:
                 return {...state, 
@@ -37,8 +37,18 @@ const postsReducer = (state = initialState, action) => {
             case types.CREATE_COMMENT_TO_POST: 
                 state.posts.find(p => p.id === payload.postId).comments.unshift(payload);
                 return {...state , posts: state.posts}
-
-                
+            case types.GET_POSTS_BY_USER_ID_REQUEST: 
+                    return {...state, 
+                        loading: true
+                    }
+            case types.GET_POSTS_BY_USER_ID_SUCCESS:
+                    return {...state, 
+                        loading: false, 
+                        posts: payload
+                        }
+            case types.GET_POSTS_BY_USER_ID_FAILURE:
+                return {...state,
+                        loading: false}
         default:
         return state;
     }
