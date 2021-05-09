@@ -28,11 +28,15 @@ const getPostsByUserId = (userId) => async (dispatch) => {
     }
 }
 
-const postPost = (postBody) => async (dispatch) => {
+const postPost = (user,postBody) => async (dispatch) => {
         dispatch({ type: types.POST_POST_REQUEST, payload: null });
         
     try {        
         const data = await api.post('/posts',{
+            user: {
+                username: user.username,
+                avatarUrl: user.avatarUrl,
+            },
             body: postBody, 
             userId: 2, 
             createdAt: moment().format(),

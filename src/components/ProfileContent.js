@@ -58,10 +58,11 @@ export const ProfileContent = () => {
 
 const Content = styled.div`
     width: 100%;
-    height: 150vh;
+    height: auto;
     background: #18191A;    
     display: flex;
     justify-content: center;
+
 `
 
 const ContentContainer = styled.div`
@@ -168,7 +169,7 @@ const ContentLeftPhotosTitle = styled.div`
 
 const ContentPost = styled.div`
     width: 60%;
-    height: 100%;
+    height: 150vh;
     overflow: hidden;
     overflow-y: auto;
     @media (max-width: 900px){

@@ -13,7 +13,7 @@ export const ModalBoxPost = ({modalOpen, setModalOpen, ...restProps}) => {
     const handleSubmitPost = (e) => {
         e.preventDefault();
         if(postBody){
-            dispatch(postsActions.postPost(postBody))
+            dispatch(postsActions.postPost(authState, postBody))
             setPostBody("");
             setModalOpen(!modalOpen)
         }
