@@ -17,6 +17,12 @@ export default function LoginPage() {
     const  handleFormSubmit = (e) => {
         e.preventDefault();
         dispatch(authActions.register(username, firstName, lastName, avatarUrl, email, password));
+        setEmail("");
+        setPassword("");
+        setUsername("");
+        setFirstName("");
+        setLastName("");
+        setAvatarUrl("");
     } 
 
     if(auth.loading){
@@ -28,7 +34,7 @@ export default function LoginPage() {
 
 
     return (
-        <div className="signup-page">
+        <div className="signup-page container">
             <div className="signup-card" >
                 <Form onSubmit={handleFormSubmit} className="form-card">
                     <Form.Group controlId="formBasicUsername">

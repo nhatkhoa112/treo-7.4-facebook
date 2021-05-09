@@ -14,6 +14,8 @@ export default function LoginPage() {
     const handleFormSubmit = (e) => {
         e.preventDefault();
         dispatch(authActions.userLogin(email, password))
+        setEmail("");
+        setPassword("");
     }
 
 
@@ -28,7 +30,7 @@ export default function LoginPage() {
 
 
     return (
-        <div className="login-page">
+        <div className="login-page container">
             <div className="login-card" >
                 <Form onSubmit={handleFormSubmit}  className="form-card">
                     <Form.Group controlId="formBasicEmail">

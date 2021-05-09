@@ -1,7 +1,7 @@
 import { Switch, Route } from "react-router";
 import "./App.css";
 import Navbar from "./components/Navbar";
-import {Homepage, FourZeroFourPage, LoginPage, SignupPage} from './pages'
+import {Homepage, FourZeroFourPage, LoginPage, SignupPage, ProfilePage} from './pages'
 import ProtectedRoute from './components/ProtectRoute';
 
 function App() {
@@ -10,9 +10,10 @@ function App() {
         <Navbar />
           <Switch>
           <ProtectedRoute exact path={`/`} component={Homepage} />
-          <div className="container">
+          <div>
             <Route  exact path={"/login"} component={LoginPage} />
             <Route  exact path={"/signup"} component={SignupPage} />
+            <Route exact path={"/:username"} component={ProfilePage} />
           </div>
           <Route exact path={"/*"} component={FourZeroFourPage} />
           </Switch>    
