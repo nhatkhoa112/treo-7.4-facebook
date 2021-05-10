@@ -38,7 +38,7 @@ const postPost = (user,postBody) => async (dispatch) => {
                 avatarUrl: user.avatarUrl,
             },
             body: postBody, 
-            userId: 2, 
+            userId: user.id, 
             createdAt: moment().format(),
             comments: []  
         });
@@ -48,8 +48,6 @@ const postPost = (user,postBody) => async (dispatch) => {
         dispatch({ type: types.POST_POST_FAILURE, payload: error });
     }
 }
-
-
 
 const postsActions = {getPosts, postPost , getPostsByUserId};
 

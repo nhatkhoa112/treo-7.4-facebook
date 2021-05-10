@@ -43,7 +43,7 @@ export const Main = () => {
                 </MainStoryIcons>
             </MainStory>
             <MainPosts>
-                {posts.map(post => {
+                {posts.reverse().map(post => {
                     return(
                         <PostItem key={post.id} post={post} />
                     )   
